@@ -43,21 +43,14 @@ fs.writeFile('../public/images/image.jpeg', req.body.data, 'base64', function(er
 
 function doSpark(response)
 {
-    console.log(response);
-    var isHappy = (response[0].scores.happy > 0.5)? "1":"0";
-    console.log("is happy"+isHappy);
-    console.log(process.env.USER_NAME)
-    console.log(process.env.USER_PASS);
-    console.log(process.env.SPARK_ID);
-    
-    Spark.login({ username: process.env.USER_NAME, password: process.env.PASS_WORD }, function(err, body) {
-      //to handle
-      Spark.callFunction(process.env.SPARK_ID,'setMode',"1",function(err,data){
-             console.log("favorite called?");
+    var value = parseFloat(response[0].scores.happiness);
+    var isHappy = (value> 0.5)? "1":"0";
+    Spark.login({ username: process.env.USER_NAME, password: process.env.USER_PASS }, function(err, body) {
+      Spark.callFunction(process.env.SPARK_ID,'setMode',isHappy,function(err,data){
+             // console.log
         }); 
   });
     
 }
-
 
 module.exports = router;
