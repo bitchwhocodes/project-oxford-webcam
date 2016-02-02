@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div.holders
+    canvas#photo(width='320' height='240')
+    video#camera(width='320' height='240')
+  div
+    button#sendbutton Analyze Image
+  
+  
+  
+ 
