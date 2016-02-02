@@ -45,11 +45,11 @@ function doSpark(response)
 {
     console.log(response);
     var isHappy = (response[0].scores.happy > 0.5)? "1":"0";
-    console.log(isHappy);
+    console.log("is happy"+isHappy);
     
     Spark.login({ username: process.env.USER_NAME, password: process.env.PASS_WORD }, function(err, body) {
       //to handle
-      Spark.callFunction(process.env.SPARK_ID,'setMode',isHappy,function(err,data){
+      Spark.callFunction(process.env.SPARK_ID,'setMode',"1",function(err,data){
              console.log("favorite called?");
         }); 
   });
