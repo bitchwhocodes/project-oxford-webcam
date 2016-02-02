@@ -3,6 +3,8 @@ $(document).ready(function () {
     var c = document.getElementById('photo');
     var v = document.getElementById('camera');
     var context = c.getContext('2d');
+    
+    // bad mix of vanilla and jquery. ooops
     $('#sendbutton').click(function(eObject){
         sendImage();
     })
@@ -41,6 +43,7 @@ $(document).ready(function () {
     }
 
     function sendImage() {
+        $("#feedback").text("Getting emotional capability");
         console.log("send image");
         //var c = document.getElementById('photo');
         var url = c.toDataURL('image/jpeg');

@@ -11,3 +11,8 @@ a {
 #camera{
     display:none;
 }
+
+#feeback{
+    width:250px;
+    height:400px;
+}
