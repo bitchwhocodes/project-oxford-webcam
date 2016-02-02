@@ -49,7 +49,7 @@ $(document).ready(function () {
         console.log("send image");
         //var c = document.getElementById('photo');
         var url = c.toDataURL('image/jpeg');
-         $("#photosimg").attr('src',url);
+         $("#photoimg").attr('src',url);
         console.log(url);
         $.ajax({
             url: '/image',
