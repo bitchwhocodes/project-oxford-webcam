@@ -43,10 +43,13 @@ $(document).ready(function () {
     }
 
     function sendImage() {
+        
+       
         $("#feedback").text("Getting emotional capability");
         console.log("send image");
         //var c = document.getElementById('photo');
         var url = c.toDataURL('image/jpeg');
+         $("#photosimg").attr({"src":url});
         console.log(url);
         $.ajax({
             url: '/image',

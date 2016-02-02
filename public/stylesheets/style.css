@@ -17,3 +17,7 @@ a {
     height:100px;
     word-wrap:break-word;
 }
+
+#photoimg{
+    float:left;
+}
