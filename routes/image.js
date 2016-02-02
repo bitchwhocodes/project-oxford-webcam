@@ -46,6 +46,9 @@ function doSpark(response)
     console.log(response);
     var isHappy = (response[0].scores.happy > 0.5)? "1":"0";
     console.log("is happy"+isHappy);
+    console.log(process.env.USER_NAME)
+    console.log(process.env.USER_PASS);
+    console.log(process.env.SPARK_ID);
     
     Spark.login({ username: process.env.USER_NAME, password: process.env.PASS_WORD }, function(err, body) {
       //to handle
