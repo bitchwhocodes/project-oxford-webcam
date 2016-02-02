@@ -51,7 +51,8 @@ $(document).ready(function () {
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify({ data: url }),
-            success: function () { console.log("oh noes") }
+            success: function (data) { 
+                $("#feedback").text(JSON.stringify(data)) }
         });
     }
     function showImage() {
