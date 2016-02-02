@@ -44,7 +44,8 @@ fs.writeFile('../public/images/image.jpeg', req.body.data, 'base64', function(er
 function doSpark(response)
 {
     console.log(response);
-    var isHappy = (response.scores.happy > 0.5)? "1":"0";
+    var isHappy = (response[0].scores.happy > 0.5)? "1":"0";
+    console.log(isHappy);
     
     Spark.login({ username: process.env.USER_NAME, password: process.env.PASS_WORD }, function(err, body) {
       //to handle
