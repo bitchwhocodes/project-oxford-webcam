@@ -27,7 +27,7 @@ var url = path.join(process.cwd(), 'public')
 var hostname  = req.protocol + '://' + req.get('host');
 //test image
 //var image = "https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/2182/full.staceymulcahy220.jpg"
-fs.writeFile('../images/image.jpeg', req.body.data, 'base64', function(err) {
+fs.writeFile('../public/images/image.jpeg', req.body.data, 'base64', function(err) {
     
     console.log("File System"+err)
     oxfordEmotion.recognize("url", hostname+"/images/image.jpeg", function(response) {
