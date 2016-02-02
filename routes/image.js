@@ -24,9 +24,9 @@ req.body.data = req.body.data.replace(/^data:image\/jpeg+;base64,/, "");
 req.body.data = req.body.data.replace(/ /g, '+');
 var path = require('path'); 
 var url = path.join(process.cwd(), 'public') 
-console.log(url)
+var hostname  = req.protocol + '://' + req.get('host');
 fs.writeFile(url+'/images/image.jpeg', req.body.data, 'base64', function(err) {
-    oxfordEmotion.recognize("url", req.body.data, function(response) {
+    oxfordEmotion.recognize("url", hostname+"/images/image.jpeg", function(response) {
         console.log(response);
         res.json(response);
     });
