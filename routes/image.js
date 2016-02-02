@@ -32,7 +32,7 @@ fs.writeFile('../public/images/image.jpeg', req.body.data, 'base64', function(er
     console.log("File System"+err)
     oxfordEmotion.recognize("url", hostname+"/images/image.jpeg", function(response) {
         console.log(response);
-        //doSpark(response);
+        doSpark(response);
         res.json(response);
     });
  
@@ -40,18 +40,19 @@ fs.writeFile('../public/images/image.jpeg', req.body.data, 'base64', function(er
 
 });
 
-/*
+
 function doSpark(response)
 {
-    var isHappy = 
+    var isHappy = (response.scores.happy > 0.5)? "1":"0";
+    
     Spark.login({ username: process.env.USER_NAME, password: process.env.PASS_WORD }, function(err, body) {
       //to handle
-      Spark.callFunction(process.env.SPARK_ID,'setHappy','3',function(err,data){
+      Spark.callFunction(process.env.SPARK_ID,'setMode',isHappy,function(err,data){
              console.log("favorite called?");
         }); 
   });
     
 }
-*/
+
 
 module.exports = router;
