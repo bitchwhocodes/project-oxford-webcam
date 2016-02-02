@@ -21,3 +21,12 @@ a {
 #photoimg{
     float:left;
 }
+canvas{
+    float:left;
+}
+
+.button-holder, #holders{
+    float:left;
+    width:100%;
+}
+
