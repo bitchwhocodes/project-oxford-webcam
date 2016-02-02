@@ -15,4 +15,5 @@ a {
 #feeback{
     width:250px;
     height:400px;
+    word-wrap:break-word;
 }

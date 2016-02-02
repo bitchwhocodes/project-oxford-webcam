@@ -3,8 +3,8 @@ var router = express.Router();
 var Spark = require("spark");
 var oxfordEmotion = require("node-oxford-emotion")(process.env.PO_KEY);
 var fs = require('fs');
-var sys = require('sys');
 
+var path = require('path'); 
 
 
 function parseDataURL(body) {
@@ -22,12 +22,14 @@ function parseDataURL(body) {
 router.put('/', function(req, res, next) {
 req.body.data = req.body.data.replace(/^data:image\/jpeg+;base64,/, "");
 req.body.data = req.body.data.replace(/ /g, '+');
-var path = require('path'); 
+
 var url = path.join(process.cwd(), 'public') 
 var hostname  = req.protocol + '://' + req.get('host');
 //test image
 //var image = "https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/2182/full.staceymulcahy220.jpg"
 fs.writeFile(url+'/images/image.jpeg', req.body.data, 'base64', function(err) {
+    
+    console.log("File System"+err)
     oxfordEmotion.recognize("url", hostname+"/images/image.jpeg", function(response) {
         console.log(response);
         //doSpark(response);
